@@ -79,12 +79,11 @@ function VRInterface() {
             <Text position={[-3.5, 2.25, -17.4]} fontSize={0.15} color="#000" anchorX="center" anchorY="middle" font="/fonts/Yukita/YukitaSans-Medium.otf">
                 Color
             </Text>
-            <Button filterColor="red" position={[-3.5, 1.9, -17.48]} />
-            <Button filterColor="orange" position={[-2.6, 1.9, -17.48]} />
-            <Button filterColor="white" position={[-1.7, 1.9, -17.48]} />
-            <Button filterColor="black" position={[-0.8, 1.9, -17.48]} />
-            <Button filterColor="green" position={[0.1, 1.9, -17.48]} />
-            <Button filterColor="beige" position={[1, 1.9, -17.48]} />
+            <Button filterColor="black" position={[-3.5, 1.9, -17.48]} />
+            <Button filterColor="cyan" position={[-2.6, 1.9, -17.48]} />
+            <Button filterColor="lime" position={[-1.7, 1.9, -17.48]} />
+            <Button filterColor="white" position={[-0.8, 1.9, -17.48]} />
+            <Button filterColor="beige" position={[0.1, 1.9, -17.48]} />
 
             <Text position={[-3.5, 1.5, -17.4]} fontSize={0.15} color="#000" anchorX="center" anchorY="middle" font="/fonts/Yukita/YukitaSans-Medium.otf">
                 Category
