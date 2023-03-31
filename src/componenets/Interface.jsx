@@ -1,13 +1,24 @@
+import React, { useEffect, useState } from "react";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
 import { useConfigurator } from "../contexts/Configurator";
-import { useRef, useEffect } from "react";
-import { Box, Stack, Slider, Chip, Typography, Accordion, AccordionSummary, AccordionDetails, Button, createTheme, ThemeProvider, Avatar, Rating, FormControlLabel, FormControl, RadioGroup, Radio, Modal } from "@mui/material";
-import { useState } from "react";
+import { Stack, Slider, Chip, Typography, Accordion, AccordionSummary, AccordionDetails, createTheme, ThemeProvider, Avatar, Rating, FormControlLabel, FormControl, RadioGroup, Radio, Modal } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
+import myData from '../data/data.json';
 
-export const Interface = () => {
-const { filterColor, setFilterColor, input, setPrice, category, setCategory, brand, setBrand, cursor, setRating, setSelected } = useConfigurator();
-const inputRef = useRef(null);
+const multiArray = myData
+
+const colors = [...new Set(multiArray.map((item) => item.color))];
+const categories = [...new Set(multiArray.map((item) => item.category))];
+const brands = [...new Set(multiArray.map((item) => item.brand))];
+const minPrice = Math.min(...multiArray.map((item) => item.price));
+const maxPrice = Math.max(...multiArray.map((item) => item.price));
+
+const DrawerNavigate = ({ variant, ...props }) => {
+  const [open, setOpen] = useState(false);
+
+  const { filterColor, setFilterColor, setPrice, category, setCategory, setBrand, brand, setRating, selected, setSelected } = useConfigurator();
 
 const theme = createTheme({
   palette: {
@@ -23,16 +34,13 @@ const theme = createTheme({
   },
 });
 
-useEffect(() => {
-if (input) {
-  inputRef.current.focus();
-}
-}, [input]);
 
 function valuetext(value) {
   return `${value}`;
 }
-  const [value, setValue] = useState([0, 1000]);
+
+
+  const [value, setValue] = useState([minPrice, maxPrice]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -43,12 +51,12 @@ function valuetext(value) {
 
 function resetFilters() {
   setFilterColor([]);
-  setPrice([0, 1000]);
-  setValue([0, 1000]);
+  setPrice([minPrice, maxPrice]);
+  setValue([minPrice, maxPrice]);
   setCategory([]);
   setBrand([]);
   setRating(0);
- 
+  setRatingValue(0);
 }
 
 const handleRadioChange = (event) => {
@@ -56,12 +64,31 @@ const handleRadioChange = (event) => {
   setRatingValue(event.target.value);
 };
 
-return (
-<>
-<ThemeProvider theme={theme}>
-  <div className="filter">
-    <Box sx={{ width: 500, maxHeight: '82.5vh', overflowY: 'auto', overflowX: 'hidden'}}>
-      <Typography variant="h2">FILTER</Typography>
+useEffect(() => {
+
+}, [selected])
+
+
+  return (
+    <>
+    <ThemeProvider theme={theme}>
+        <Drawer
+          variant={"Persistent "}
+          {...props}
+          open={open}
+          anchor={"right"}
+          onClose={() => setOpen(false)}
+          PaperProps={{
+            sx: {
+              backgroundColor: "rgba(238, 238, 238, 0.59)",
+              boxShadow: " 0 4px 30px rgba(0, 0, 0, 0.1)",
+              backdropFilter: "blur(20px)",
+              width: 500,
+              p: 5,
+            },
+          }}
+        >
+           <Typography variant="h2">FILTER</Typography>
       <Accordion sx={{ mb: 2, border: 'none', boxShadow: 'none', backgroundColor: 'transparent'}}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -86,9 +113,10 @@ return (
         <Typography>Brand</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Stack direction="row" spacing={1}>  
-            <Chip label="IKEA" {...(brand.includes("ikea") ? {color: "primary"} : {variant: "outlined"})} onClick={()=> setBrand(brand.includes("ikea") ? brand.filter((brand) => brand !== "ikea") : [...brand, "ikea"])} />
-            <Chip label="CB2" {...(brand.includes("cb2") ? {color: "primary"} : {variant: "outlined"})} onClick={()=> setBrand(brand.includes("cb2") ? brand.filter((brand) => brand !== "cb2") : [...brand, "cb2"])} />
+          <Stack direction="row" flexWrap="wrap" justifyContent="left" gap={1} > 
+            {brands.map((brandName) => (
+              <Chip key={brandName} label={brandName} {...(brand.includes(brandName) ? { color: "primary" } : { variant: "outlined" })} onClick={() => setBrand(brand.includes(brandName)? brand.filter((brand) => brand !== brandName): [...brand, brandName])}/>
+            ))}
           </Stack>
         </AccordionDetails>
       </Accordion>
@@ -102,12 +130,9 @@ return (
         </AccordionSummary>
         <AccordionDetails>
           <Stack direction="row" flexWrap="wrap" justifyContent="left" gap={1} >
-            <Chip avatar={<Avatar alt="Red" src="./avatar/red.png" />} label="Red" {...(filterColor.includes("red") ? {color: "primary"} : {variant: "outlined"})} onClick={() => setFilterColor(filterColor.includes("red") ? filterColor.filter((color) => color !== "red") : [...filterColor, "red"])} />
-            <Chip avatar={<Avatar alt="orange" src="./avatar/orange.png" />} label="Orange" {...(filterColor.includes("orange") ? {color: "primary"} : {variant: "outlined"})} onClick={() => setFilterColor(filterColor.includes("orange") ? filterColor.filter((color) => color !== "orange") : [...filterColor, "orange"])} />
-            <Chip avatar={<Avatar alt="white" src="./avatar/white.png" />} label="White" {...(filterColor.includes("white") ? {color: "primary"} : {variant: "outlined"})} onClick={() => setFilterColor(filterColor.includes("white") ? filterColor.filter((color) => color !== "white") : [...filterColor, "white"])} />
-            <Chip avatar={<Avatar alt="black" src="./avatar/black.png" />}  label="Black" {...(filterColor.includes("black") ? {color: "primary"} : {variant: "outlined"})} onClick={() => setFilterColor(filterColor.includes("black") ? filterColor.filter((color) => color !== "black") : [...filterColor, "black"])} />
-            <Chip avatar={<Avatar alt="green" src="./avatar/green.png" />}  label="Green" {...(filterColor.includes("green") ? {color: "primary"} : {variant: "outlined"})} onClick={() => setFilterColor(filterColor.includes("green") ? filterColor.filter((color) => color !== "green") : [...filterColor, "green"])} />
-            <Chip avatar={<Avatar alt="beige" src="./avatar/beige.png" />}  label="Beige" {...(filterColor.includes("beige") ? {color: "primary"} : {variant: "outlined"})} onClick={() => setFilterColor(filterColor.includes("beige") ? filterColor.filter((color) => color !== "beige") : [...filterColor, "beige"])} />
+            {colors.map((color, i) => (
+              <Chip key={i} avatar={<Avatar alt={color} src={`./avatar/${color}.png`} />} label={color} {...(filterColor.includes(color) ? { color: "primary" } : { variant: "outlined" })} onClick={() => setFilterColor(prevFilterColor => prevFilterColor.includes(color) ? prevFilterColor.filter((selectedColor) => selectedColor !== color) : [...prevFilterColor, color])} />
+            ))}
           </Stack>
         </AccordionDetails>
       </Accordion>
@@ -127,7 +152,8 @@ return (
               valueLabelDisplay="auto"
               getAriaValueText={valuetext}
               color="primary"
-              max={1000}
+              max={maxPrice}
+              min={minPrice}
             />
             <Typography sx={{textAlign: 'center', mb: 2, fontWeight: 'bold'}}>${value[0]} - ${value[1]}</Typography>
         </AccordionDetails>
@@ -171,14 +197,29 @@ return (
           </FormControl>
         </AccordionDetails>
       </Accordion>
-    </Box>  
-    <Button variant="contained" sx={{ width: 500 }} size="large" onClick={() => (resetFilters(), setSelected([]))}>RESET</Button>
-  </div>
-</ThemeProvider>
-<div className="title"><Typography variant="h1">COUCH<br/>MATRIX</Typography></div>
+      <Button variant="contained" sx={{ width: 500, mb: 5 }} size="large" onClick={() => (resetFilters())}>RESET</Button>
+    </Drawer>
+       
+    <Button onClick={() => setOpen(!open)} className="filterBtn" variant="outlined">
+     Filter
+    </Button>
+    <Button onClick={() => selected.length > 0 ? setSelected([]): setSelected([null,0,[0,8,22]])} className="spectateBtn" {...(selected.length > 0 ? {variant: "contained"} : {variant: "outlined", color:"error"})}>
+      {selected.length > 0 ? "Spectate Mode" : "Exit Spectate Mode"}
+    </Button>
 
-</>
-);
+    {
+      selected[0] !== null ? <div className="selected">
+        <Typography variant="h1">{selected[1]}</Typography>
+        <Typography variant="h4">{selected[8]}</Typography>
+        <Chip label={"$ "+selected[7]} variant="contained" color="primary" sx={{ width: 100, height: 30, borderRadius: 5, mb: 2 }}/>
+        <Rating name="read-only" value={selected[6]} sx={{'& .MuiRating-iconFilled': {color: '#242424',},}} readOnly />
+        <Typography variant="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+        </Typography>
+      </div> : null
+    }
+    </ThemeProvider>
+    </>
+  );
 };
 
-export default Interface;
+export default DrawerNavigate;

@@ -5,7 +5,6 @@ import { useConfigurator } from "../contexts/Configurator";
 import * as THREE from "three";
 import { useTexture } from "@react-three/drei";
 
-
 export function Bank(props) {
 
     const { nodes } = useGLTF(props.gltf)
@@ -19,7 +18,7 @@ export function Bank(props) {
 
     const { setCursor, selected, setSelected } = useConfigurator()
 
-    const info = [index, props.name, props.newPosition, props.gltf, props.scale, props.rotation, props.visible]
+    const info = [index, props.name, props.newPosition, props.gltf, props.scale, props.rotation, props.rating, props.price, props.category]
 
 
     // useFrame((state) =>
@@ -38,7 +37,7 @@ export function Bank(props) {
     {
       if(props.visible == false)
       {
-        group.current.position.lerp(new THREE.Vector3(props.position[0], props.position[1]+5, props.position[2]), 0.2);
+        group.current.position.lerp(new THREE.Vector3(props.position[0], props.position[1]+30, props.position[2]), 0.2);
       }
       else if (props.visible == true)
       {
@@ -50,21 +49,18 @@ export function Bank(props) {
           group.current.position.lerp(new THREE.Vector3(props.position[0], props.position[1], props.position[2]), 0.2);
         }
       }
-      else if (hovered){
-            group.current.scale.setScalar(0.05 + Math.sin(state.clock.elapsedTime * 6) / 600);
-      }
     });
-    useFrame(() =>
+    useFrame((delta) =>
     {
       if(clicked && props.visible == true && selected[0] == index)
       {
         try{
           group.current.position.lerp(new THREE.Vector3(props.newPosition[0], props.newPosition[1]+1, props.newPosition[2]), 0.04);
-          group.current.rotation.y += 0.01;
+          // group.current.rotation.y += 0.01;
         }
         catch{
           group.current.position.lerp(new THREE.Vector3(props.position[0], props.position[1]+1, props.position[2]), 0.04);
-          group.current.rotation.y += 0.01;
+          // group.current.rotation.y += 0.01;
         }
       }
       else
@@ -82,22 +78,22 @@ export function Bank(props) {
     });
 
     const [colorMap, displacementMap, normalMap, roughnessMap, aoMap] = useTexture([
-      props.materials.map + '/Substance_Graph_BaseColor.jpg',
-      props.materials.map + '/Substance_Graph_Height.png',
-      props.materials.map + '/Substance_Graph_Normal.jpg',
-      props.materials.map + '/Substance_Graph_Roughness.jpg',
-      props.materials.map + '/Substance_Graph_AmbientOcclusion.jpg',
+      props.materials.map + '/Substance_Graph_BaseColor.webp',
+      props.materials.map + '/Substance_Graph_Height.webp',
+      props.materials.map + '/Substance_Graph_Normal.webp',
+      props.materials.map + '/Substance_Graph_Roughness.webp',
+      props.materials.map + '/Substance_Graph_AmbientOcclusion.webp',
     ])
 
     // const colorMapp = useTexture(props.materials.map);
     colorMap.wrapS = THREE.RepeatWrapping;
     colorMap.wrapT = THREE.RepeatWrapping;
-    colorMap.repeat.set(15,12);
+    colorMap.repeat.set(12,12);
 
 
     return (
       <group dispose={null}>
-        {
+        {/* {
           clicked || hovered ?( <>
             <Text
               font="/fonts/Yukita/YukitaSans-Bold.otf"
@@ -127,14 +123,14 @@ export function Bank(props) {
             </Text>
             </>
           ) : null
-        }
+        } */}
         <mesh
             {...props}
             ref={group}
             receiveShadow
             geometry={nodes.HSM0004001.geometry}
             scale={0.05}
-            onClick={(e) => (e.stopPropagation(), setClicked(!clicked), selected[0] == index ? setSelected([null,0,[0,6,16]]) : setSelected(info))}
+            onClick={(e) => (e.stopPropagation(), setClicked(!clicked), selected[0] == index ? setSelected([null,0,[0,8,20]]) : setSelected(info))}
             onPointerOver={(e) => (e.stopPropagation(), setHovered(true), setCursor(true))}
             onPointerOut={(e) => (setHovered(false), setCursor(false))}
         >
