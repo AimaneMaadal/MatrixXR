@@ -1,6 +1,7 @@
 import Meubel from './Meubel.jsx'
 import { useConfigurator } from "../contexts/Configurator";
 import myData from '../data/data.json';
+import { Text } from "@react-three/drei";
 
 const multiArray = myData.sort(() => Math.random() - 0.5);
 
@@ -61,6 +62,8 @@ export default function Experience()
 
   setMatrix(positionToMatrixNewPosition(multiArrayWithPositions));
 
+  let results
+
   for (let i = 0; i < multiArrayWithPositions.length; i++) {
     if ((filterColor.includes(multiArrayWithPositions[i].color) || filterColor.length === 0 ) && (multiArrayWithPositions[i].price >= price[0] && multiArrayWithPositions[i].price <= price[1]) && (category.includes(multiArrayWithPositions[i].category) || category.length === 0) && (brand.includes(multiArrayWithPositions[i].brand) || brand.length === 0) && (multiArrayWithPositions[i].rating >= rating)) {
       multiArrayWithPositions[i].visible = true;
@@ -71,23 +74,42 @@ export default function Experience()
           break;
         }
       }
-      
     }
     else {
       multiArrayWithPositions[i].visible = false;
     }
   }
+  let amount = multiArrayWithPositions.filter((obj) => obj.visible === true).length;
+  if (amount === 0) {
+    results = 0;
+  }
+  else {
+    results = -1;
+  }
 
     return <>
 
-        { multiArrayWithPositions.map((props, i) => (
-          <Meubel key={i} {...props} index={i} />
-        ))}
+      { multiArrayWithPositions.map((props, i) => (
+        <Meubel key={i} {...props} index={i} />
+      ))}
 
-        <mesh position={[0, -0.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-          <planeGeometry attach="geometry" args={[150, 150]} />
-          <meshStandardMaterial attach="material" color="white" />
-        </mesh>
+      <Text
+        font="/fonts/Funkturm.otf"
+        color="black"
+        fontSize={2}
+        position={[0, results, 0]}
+        rotation={[-Math.PI / 2, 0, 0]}
+        anchorX="center"
+        anchorY="middle"
+      >
+      No products found
+      </Text>
+        
+
+      <mesh position={[0, -0.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry attach="geometry" args={[150, 150]} />
+        <meshStandardMaterial attach="material" color="white" />
+      </mesh>
 
     </>
 }

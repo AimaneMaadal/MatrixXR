@@ -24,7 +24,7 @@ function App() {
           <XR>
 
             <Lights />
-            <VRInterface />
+            {/* <VRInterface /> */}
             <Controllers /> 
 
             <TeleportTravel useNormal={false}>

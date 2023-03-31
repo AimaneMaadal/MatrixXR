@@ -2,8 +2,6 @@ import { Raycaster, Vector3 } from 'three';
 import { useXR, Interactive } from '@react-three/xr';
 import { useFrame } from '@react-three/fiber';
 import { useCallback, useRef, useState } from 'react';
-import VRInterface from './VRInterface.jsx'
-
 
 export function TeleportIndicator(props) {
 	return (
@@ -91,7 +89,6 @@ export default function TeleportTravel(props) {
 				onBlur={() => setIsHovered(false)}>
 				<group ref={target}>{props.children}</group>
 			</Interactive>
-			<VRInterface />
 		</>
 	);
 }

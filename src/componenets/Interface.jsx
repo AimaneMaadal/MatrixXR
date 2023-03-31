@@ -197,7 +197,7 @@ useEffect(() => {
           </FormControl>
         </AccordionDetails>
       </Accordion>
-      <Button variant="contained" sx={{ width: 500, mb: 5 }} size="large" onClick={() => (resetFilters())}>RESET</Button>
+      <Button variant="contained" sx={{ width: 500, mb: 8 }} size="large" onClick={() => (resetFilters())}>RESET</Button>
     </Drawer>
        
     <Button onClick={() => setOpen(!open)} className="filterBtn" variant="outlined">
@@ -208,7 +208,8 @@ useEffect(() => {
     </Button>
 
     {
-      selected[0] !== null ? <div className="selected">
+      selected && selected.length > 3 ?  
+      <div className="selected">
         <Typography variant="h1">{selected[1]}</Typography>
         <Typography variant="h4">{selected[8]}</Typography>
         <Chip label={"$ "+selected[7]} variant="contained" color="primary" sx={{ width: 100, height: 30, borderRadius: 5, mb: 2 }}/>

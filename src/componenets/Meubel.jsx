@@ -50,32 +50,39 @@ export function Bank(props) {
         }
       }
     });
-    useFrame((delta) =>
-    {
-      if(clicked && props.visible == true && selected[0] == index)
-      {
-        try{
-          group.current.position.lerp(new THREE.Vector3(props.newPosition[0], props.newPosition[1]+1, props.newPosition[2]), 0.04);
-          // group.current.rotation.y += 0.01;
+    useFrame((state, delta) => {
+      if (clicked && props.visible && selected[0] === index) {
+        try {
+          group.current.position.lerp(
+            new THREE.Vector3(
+              props.newPosition[0],
+              props.newPosition[1] + 1,
+              props.newPosition[2]
+            ),
+            0.04
+          );
+          group.current.rotation.y += delta * 0.5; // Rotates the group with respect to delta
+        } catch {
+          group.current.position.lerp(
+            new THREE.Vector3(
+              props.position[0],
+              props.position[1] + 1,
+              props.position[2]
+            ),
+            0.04
+          );
+          group.current.rotation.y += delta * 0.5; // Rotates the group with respect to delta
         }
-        catch{
-          group.current.position.lerp(new THREE.Vector3(props.position[0], props.position[1]+1, props.position[2]), 0.04);
-          // group.current.rotation.y += 0.01;
-        }
-      }
-      else
-      { 
-        clicked && setClicked(false)
-        try{ 
-          group.current.position.lerp(new THREE.Vector3(props.newPosition[0], props.newPosition[1], props.newPosition[2]), 0.04);
+      } else {
+        clicked && setClicked(false);
+        try {
           group.current.rotation.y = 0.0;
-        }
-        catch{
-          group.current.position.lerp(new THREE.Vector3(props.position[0], props.position[1], props.position[2]), 0.04);
+        } catch {
           group.current.rotation.y = 0.0;
         }
       }
     });
+    
 
     const [colorMap, displacementMap, normalMap, roughnessMap, aoMap] = useTexture([
       props.materials.map + '/Substance_Graph_BaseColor.webp',

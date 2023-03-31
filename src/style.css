@@ -45,7 +45,7 @@ h2{
     text-align: center !important;
 }
 h4{
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width: 1.5px;
     -webkit-text-stroke-color: rgb(0, 0, 0);
     font-family: 'Funk', sans-serif !important;
     font-size: 4rem !important;
