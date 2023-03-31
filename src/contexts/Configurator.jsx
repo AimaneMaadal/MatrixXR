@@ -23,7 +23,7 @@ export const ConfiguratorProvider = ({ children }) => {
 
   const [rating, setRating] = useState(0);
 
-  const [selected, setSelected] = useState([null, 0, [0, 0, 0]]);
+  const [selected, setSelected] = useState([null, 0, [0, 8, 22]]);
 
   return (
     <ConfiguratorContext.Provider
