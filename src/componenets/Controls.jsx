@@ -27,7 +27,9 @@ export const Player = props => {
             setSelected([null,0,[0,count/7,count/2.7]])
         }
         else {
-            setSelected([null,0,[0,matrix.length/8,matrix.length/5]])
+            if (matrix.length > 0) {
+                setSelected([null,0,[0,matrix.length/8,matrix.length/5]])
+            }   
         }
     }, [filterColor, price, rating, brand, category])
 
