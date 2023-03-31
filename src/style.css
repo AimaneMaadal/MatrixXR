@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Funk';
-    src: url('./fonts/Funkturm.otf');
+    src: url('/fonts/Funkturm.otf');
 }
 
 ::-webkit-scrollbar {
