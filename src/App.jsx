@@ -11,7 +11,6 @@ import TeleportTravel from './componenets/XR/TeleportTravel.jsx'
 import VRInterface from './componenets/XR/VRInterface.jsx'
 import Controls from './componenets/Controls.jsx'
 import { Perf } from 'r3f-perf'
-import XRButton from './componenets/XR/XRbutton'
 
 function App() {
 
