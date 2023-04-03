@@ -89,6 +89,7 @@ export default function TeleportTravel(props) {
 				onBlur={() => setIsHovered(false)}>
 				<group ref={target}>{props.children}</group>
 			</Interactive>
+			
 		</>
 	);
 }

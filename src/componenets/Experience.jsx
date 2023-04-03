@@ -106,10 +106,6 @@ export default function Experience()
       </Text>
         
 
-      <mesh position={[0, -0.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry attach="geometry" args={[200, 150]} />
-        <meshStandardMaterial attach="material" color="white" />
-      </mesh>
 
     </>
 }

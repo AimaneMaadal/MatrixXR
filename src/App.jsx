@@ -12,6 +12,18 @@ import Controls from './componenets/Controls.jsx'
 import { Perf } from 'r3f-perf'
 import Loading from './componenets/Loading.jsx'
 
+
+export function Floor(props) {
+	return (
+		<>
+      <mesh position={[0, -0.5, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+        <planeGeometry attach="geometry" args={[props.size[0], props.size[1]]} />
+        <meshStandardMaterial attach="material" color="white" />
+      </mesh>
+		</>
+	);
+}
+
 function App() {
 
   return (
@@ -23,13 +35,17 @@ function App() {
           <XR>
 
             <Lights />
-            {/* <VRInterface /> */}
+
+            <VRInterface />
+            
             <Controllers /> 
 
             <TeleportTravel useNormal={false}>
-              <Experience />
+              <Floor size={[200, 150]} />
             </TeleportTravel>
-            
+            <Experience />
+
+            {/* <Perf /> */}
           </XR>
           <Controls/>
         </Canvas>
