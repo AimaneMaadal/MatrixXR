@@ -92,11 +92,6 @@ return (
 );
 });
 
-
-const urlParams = new URLSearchParams(window.location.search);
-const mode = urlParams.get('mode');
-
-
 return (
 <>
   <ThemeProvider theme={theme}>
@@ -255,8 +250,8 @@ return (
     <Button onClick={() => selected.length > 0 ? setSelected([]): setSelected([null,0,[0,8,22]])} {...(selected.length > 0 ? {variant: "contained"} : {variant: "outlined", color:"error"})}>
       {selected.length > 0 ? "Spectate Mode" : "Exit Spectate Mode"}
     </Button>
-    <Button onClick={() => mode === "vr" ? window.location.href = "http://demo-matrix.netlify.app/?mode=vr" : window.location.href = "http://demo-matrix.netlify.app"} variant="contained" style={{ backgroundColor: "#242424", color: "#fff" }}>
-      {mode === "vr" ? "Exit VR Mode" : "Enter VR Mode"}
+    <Button onClick={() => window.location.href = "http://demo-matrix.netlify.app/?mode=vr"} variant="contained" style={{ backgroundColor: "#242424", color: "#fff" }}>
+      VR Mode
     </Button>
   </div>
   </ThemeProvider>
