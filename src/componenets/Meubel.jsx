@@ -107,16 +107,16 @@ export function Bank(props) {
           <meshStandardMaterial roughness={1} map={colorMap} roughnessMap={roughnessMap} aoMap={aoMap} displacementMap={displacementMap} displacementScale={0.2} normalMap={normalMap} />
         </mesh>
         <mesh
-  position={
-    group.current && group.current.position.y < 0.5 
-      ? [group.current.position.x - 0.3, group.current.position.y - 0.4, group.current.position.z + 0.4]
-      : [0, -10, 0]
-  }
-  rotation={[-Math.PI / 2, 0, 0]}
->
-  <planeBufferGeometry attach="geometry" args={[shadowWidth / 450, shadowHeight / 450]} />
-  <meshStandardMaterial roughness={1} map={shadowMap} transparent />
-</mesh>
+            position={
+              group.current && group.current.position.y < 0.5 
+                ? [group.current.position.x - 0.3, group.current.position.y - 0.4, group.current.position.z + 0.4]
+                : [0, -10, 0]
+            }
+            rotation={[-Math.PI / 2, 0, 0]}
+          >
+            <planeBufferGeometry attach="geometry" args={[shadowWidth / 450, shadowHeight / 450]} />
+            <meshStandardMaterial roughness={1} map={shadowMap} transparent />
+        </mesh>
 
       </group>
     );
