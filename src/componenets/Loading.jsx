@@ -1,5 +1,3 @@
-import { Player } from '@lottiefiles/react-lottie-player';
-import { useFrame } from '@react-three/fiber';
 const App = () => {
 
   return (
@@ -9,7 +7,5 @@ const App = () => {
     </div>
   )
 }
-
-
 
 export default App

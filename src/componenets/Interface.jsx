@@ -73,7 +73,6 @@ useEffect(() => {
     <>
     <ThemeProvider theme={theme}>
         <Drawer
-          variant={"Persistent "}
           {...props}
           open={open}
           anchor={"right"}

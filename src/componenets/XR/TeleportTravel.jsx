@@ -8,8 +8,8 @@ export function TeleportIndicator(props) {
 		<>
 			<pointLight position={[0, 0.5, 0]} args={[0xffffff, 1, 0.6]} />
 			<mesh position={[0, 0.25, 0]}>
-				<coneBufferGeometry args={[0.1, 0.5, 6]} attach="geometry" />
-				<meshBasicMaterial attach="material" color={0xfffff} />
+				<coneGeometry args={[0.1, 0.5, 6]} attach="geometry" />
+				<meshBasicMaterial attach="material" color={0x242424} />
 			</mesh>
 		</>
 	);

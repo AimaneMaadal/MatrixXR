@@ -41,7 +41,7 @@ export const Player = props => {
             
             const poss = new THREE.Vector3(selected[2][0], selected[2][1], selected[2][2])
     
-            bodyPosition.lerp(poss, 0.5)
+            bodyPosition.lerp(poss, delta * 10)
         
             const cameraPosition = new THREE.Vector3()
             cameraPosition.copy(bodyPosition)
@@ -52,8 +52,8 @@ export const Player = props => {
             cameraTarget.copy(bodyPosition)
             cameraTarget.y += 0.25
     
-            smoothedCameraPosition.lerp(cameraPosition, 0.5)
-            smoothedCameraTarget.lerp(cameraTarget, 0.5)
+            smoothedCameraPosition.lerp(cameraPosition, delta * 10)
+            smoothedCameraTarget.lerp(cameraTarget, delta * 10)
     
             state.camera.position.copy(smoothedCameraPosition)  
     

@@ -19,20 +19,7 @@ export function Bank(props) {
     const { setCursor, selected, setSelected } = useConfigurator()
 
     const info = [index, props.name, props.newPosition, props.gltf, props.scale, props.rotation, props.rating, props.price, props.category]
-
-
-    // useFrame((state) =>
-    // {
-    //     if (hovered)
-    //     {
-    //       group.current.scale.setScalar(0.05 + Math.sin(state.clock.elapsedTime * 6) / 600);
-    //     }
-    //     else
-    //     {
-    //       group.current.scale.setScalar(0.05);
-    //     }
-    // });
-
+    
     useFrame(() =>
     {
       if(props.visible == false)
@@ -61,7 +48,7 @@ export function Bank(props) {
             ),
             0.04
           );
-          group.current.rotation.y += delta * 0.5; // Rotates the group with respect to delta
+          group.current.rotation.y += delta * 0.5;
         } catch {
           group.current.position.lerp(
             new THREE.Vector3(
@@ -71,7 +58,7 @@ export function Bank(props) {
             ),
             0.04
           );
-          group.current.rotation.y += delta * 0.5; // Rotates the group with respect to delta
+          group.current.rotation.y += delta * 0.5;
         }
       } else {
         clicked && setClicked(false);
@@ -92,45 +79,21 @@ export function Bank(props) {
       props.materials.map + '/Substance_Graph_AmbientOcclusion.webp',
     ])
 
-    // const colorMapp = useTexture(props.materials.map);
     colorMap.wrapS = THREE.RepeatWrapping;
     colorMap.wrapT = THREE.RepeatWrapping;
     colorMap.repeat.set(12,12);
 
+    
+
+    const shadowMap = useTexture("textures/shadows/"+props.category+".png");
+
+    // get the image data of the texture
+    const image = shadowMap.image;
+    const shadowWidth = image.width;
+    const shadowHeight = image.height;
 
     return (
       <group dispose={null}>
-        {/* {
-          clicked || hovered ?( <>
-            <Text
-              font="/fonts/Yukita/YukitaSans-Bold.otf"
-              color="black"
-              fontSize={0.5}
-              position={
-                props.newPosition ? [props.newPosition[0], props.newPosition[1]+1.1, props.newPosition[2]-0.1] : [props.position[0], props.position[1]+1.1, props.position[2]-0.1]
-              }
-              rotation={[0, 0, 0]}
-              anchorX="center"
-              anchorY="middle"
-            >
-              {props.index}
-            </Text>
-            <Text
-              font="/fonts/Yukita/YukitaSans-Medium.otf"
-              color="black"
-              fontSize={0.3}
-              position={
-                props.newPosition ? [props.newPosition[0], props.newPosition[1]+0.7, props.newPosition[2]-0.1] : [props.position[0], props.position[1]+0.7, props.position[2]-0.1]
-              }
-              rotation={[0, 0, 0]}
-              anchorX="center"
-              anchorY="middle"
-            >
-              {props.price}$
-            </Text>
-            </>
-          ) : null
-        } */}
         <mesh
             {...props}
             ref={group}
@@ -141,8 +104,20 @@ export function Bank(props) {
             onPointerOver={(e) => (e.stopPropagation(), setHovered(true), setCursor(true))}
             onPointerOut={(e) => (setHovered(false), setCursor(false))}
         >
-            <meshStandardMaterial roughness={1} map={colorMap} roughnessMap={roughnessMap} aoMap={aoMap} displacementMap={displacementMap} displacementScale={0.2} normalMap={normalMap} />
+          <meshStandardMaterial roughness={1} map={colorMap} roughnessMap={roughnessMap} aoMap={aoMap} displacementMap={displacementMap} displacementScale={0.2} normalMap={normalMap} />
         </mesh>
+        <mesh
+  position={
+    group.current && group.current.position.y < 0.5 
+      ? [group.current.position.x - 0.3, group.current.position.y - 0.4, group.current.position.z + 0.4]
+      : [0, -10, 0]
+  }
+  rotation={[-Math.PI / 2, 0, 0]}
+>
+  <planeBufferGeometry attach="geometry" args={[shadowWidth / 450, shadowHeight / 450]} />
+  <meshStandardMaterial roughness={1} map={shadowMap} transparent />
+</mesh>
+
       </group>
     );
   }
