@@ -5,7 +5,5 @@ export default function Lights()
 
       <pointLight position={[-10, 10, 15]} intensity={0.6} />
 
-      <pointLight position={[0, 20, -5]} intensity={0.3} />
-
     </>
 }

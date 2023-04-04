@@ -33,6 +33,7 @@
     "react": "18.2",
     "react-bootstrap": "^2.7.2",
     "react-dom": "18.2",
+    "react-spring": "^9.7.1",
     "react-xr-ui": "^0.0.45",
     "three": "^0.148.0",
     "zustand": "4.3"

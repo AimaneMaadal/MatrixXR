@@ -37,6 +37,10 @@ function App() {
     };
   }, []);
 
+const urlParams = new URLSearchParams(window.location.search);
+const mode = urlParams.get('mode');
+
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -47,12 +51,12 @@ function App() {
           </div>
         ) : (
           <>
-            <VRButton />
+            {mode === 'vr' && <VRButton />}
             <Canvas shadows camera={{ position: [0, 4, 14], fov: 60 }} dpr={[1, 2]}>
               <fog attach="fog" args={['#ffffff', 0.0002, 105]} />
               <XR>
                 <Lights />
-                <VRInterface />
+                {mode === 'vr' && <VRInterface />}
                 <Controllers />
                 <TeleportTravel useNormal={false}>
                   <Floor size={[200, 150]} />
