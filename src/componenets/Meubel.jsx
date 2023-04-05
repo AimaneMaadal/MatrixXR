@@ -104,11 +104,11 @@ export function Bank(props) {
             onPointerOver={(e) => (e.stopPropagation(), setHovered(true), setCursor(true))}
             onPointerOut={(e) => (setHovered(false), setCursor(false))}
         >
-          <meshStandardMaterial roughness={1} map={colorMap} roughnessMap={roughnessMap} aoMap={aoMap} displacementMap={displacementMap} displacementScale={0.2} normalMap={normalMap} />
+          <meshStandardMaterial roughness={5} map={colorMap}  aoMap={aoMap} displacementMap={displacementMap} displacementScale={0.2} normalMap={normalMap} />
         </mesh>
         <mesh
             position={
-              group.current && group.current.position.y < 0.1 
+              group.current && group.current.position.y < 0.2 
                 ? [group.current.position.x - 0.3, group.current.position.y - 0.4, group.current.position.z + 0.4]
                 : [0, -10, 0]
             }
