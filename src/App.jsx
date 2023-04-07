@@ -42,19 +42,14 @@ function App() {
 const urlParams = new URLSearchParams(window.location.search);
 const mode = urlParams.get('mode');
 
-const { selected, setSelected } = useConfigurator();
+const { setSelected, walk, setWalk } = useConfigurator();
 
-const [showComponent, setShowComponent] = useState(false);
-
-const controlsRef = useRef();
+const canvasRef = useRef();
 
 const handleClick = () => {
-  setShowComponent(!showComponent);
+  setWalk(!walk);
   setSelected([]);
 }
-
-
-
 
   return (
     <>
@@ -68,14 +63,14 @@ const handleClick = () => {
           <>
             {mode === 'vr' && <VRButton />}
             <KeyboardControls
-    map={[
-        { name: "forward", keys: ["ArrowUp", "KeyW"] },
-        { name: "backward", keys: ["ArrowDown", "KeyS"] },
-        { name: "left", keys: ["ArrowLeft", "KeyA"] },
-        { name: "right", keys: ["ArrowRight", "KeyD"] },
-        { name: "space", keys: ["Space"] },
-    ]}>
-            <Canvas shadows camera={{ position: [0, 4, 14], fov: 60 }} dpr={[1, 2]}>
+              map={[
+                  { name: "forward", keys: ["ArrowUp", "KeyW"] },
+                  { name: "backward", keys: ["ArrowDown", "KeyS"] },
+                  { name: "left", keys: ["ArrowLeft", "KeyA"] },
+                  { name: "right", keys: ["ArrowRight", "KeyD"] },
+                  { name: "space", keys: ["Space"] },
+              ]}>
+            <Canvas ref={canvasRef} shadows camera={{ position: [0, 4, 14], fov: 60 }} dpr={[1, 2]}>
               <fog attach="fog" args={['#ffffff', 0.0002, 105]} />
               <XR>
                 <Lights />
@@ -89,21 +84,29 @@ const handleClick = () => {
               </XR>
               <Controls />
               {/* <PointerLockControls/> */}
-              <PointerLockControls 
-                selector="#button"        
-                onUnlock={() => {
-                  setSelected([null, 0, [0, 8, 22]]);
-                  setShowComponent(false);
-                }}
-                onLock={() => setSelected([])}
-                enabled={showComponent}
-              />
+            {
+              walk ? 
+              <PointerLockControls    
+              onUnlock={() => {
+                setSelected([null, 0, [0, 8, 22]]);
+                setWalk(false);
+              }}
+              onLock={() => setSelected([])}
+            />
+            : null
+            }
+
             </Canvas>
             </KeyboardControls>
             <Interface />
+            {!walk ?
             <div id="instructions" style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white', fontSize: '2rem' }}>
-        <button id="button" onClick={handleClick}>Walk</button>
-      </div>
+              <button id="button" onClick={handleClick}>Click to start</button>
+            </div>
+            : null}
+            <div id="instructions" style={{ position: 'absolute', top: '8%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white', fontSize: '2rem' }}>
+              <button id="button" onClick={setSelected([null, 0, [0, 8, 22]])}>ready</button>
+            </div>
           </>
         )}
       </Suspense>

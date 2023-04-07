@@ -16,7 +16,7 @@ export function Bank(props) {
     const [hovered, setHovered] = useState(false)
     const [clicked, setClicked] = useState(false)
 
-    const { setCursor, selected, setSelected } = useConfigurator()
+    const { setCursor, selected, setSelected, setWalk, walk } = useConfigurator()
 
     const info = [index, props.name, props.newPosition, props.gltf, props.scale, props.rotation, props.rating, props.price, props.category]
     
@@ -100,7 +100,7 @@ export function Bank(props) {
             receiveShadow
             geometry={nodes.HSM0004001.geometry}
             scale={0.05}
-            onClick={(e) => (e.stopPropagation(), setClicked(!clicked), selected[0] == index ? setSelected([null,0,[0,8,20]]) : setSelected(info))}
+            onClick={(e) => !walk ? (e.stopPropagation(), setClicked(!clicked), selected[0] == index ? setSelected([null,0,[0,8,20]]) : setSelected(info)) : null}
             onPointerOver={(e) => (e.stopPropagation(), setHovered(true), setCursor(true))}
             onPointerOut={(e) => (setHovered(false), setCursor(false))}
         >

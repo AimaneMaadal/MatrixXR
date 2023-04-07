@@ -20,8 +20,7 @@ const maxPrice = Math.max(...multiArray.map((item) => item.price));
 const DrawerNavigate = ({ variant, ...props }) => {
 const [open, setOpen] = useState(false);
 
-const { filterColor, setFilterColor, setPrice, category, setCategory, setBrand, brand, setRating, selected, setSelected
-} = useConfigurator();
+const { filterColor, setFilterColor, setPrice, category, setCategory, setBrand, brand, setRating, selected, setSelected, walk} = useConfigurator();
 
 const theme = createTheme({
 palette: {
@@ -91,6 +90,12 @@ return (
   onClick={handleClick} />
 );
 });
+
+useEffect(() => {
+  if(walk === true && open === true) {
+    setOpen(false);
+  }
+}, [walk])
 
 return (
 <>
@@ -243,7 +248,7 @@ return (
         </Typography>
       </div> : null
     }
-
+  { !walk ?
   <div className="controls" style={{ right: open ? 550 : 50 }}>
     <Button variant="contained" onClick={() => setOpen(!open)} style={{ backgroundColor: "#242424", color: "#fff" }}>
       {open ? "Close Filter" : "Open Filter"}
@@ -255,6 +260,8 @@ return (
       VR Mode
     </Button>
   </div>
+  : null
+  }
   </ThemeProvider>
 </>
 );
