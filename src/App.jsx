@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useEffect } from 'react';
+import React, { useState, Suspense, useEffect, useRef } from 'react';
 import { XR, Controllers, VRButton } from '@react-three/xr';
 import '@react-three/fiber';
 import { Canvas } from '@react-three/fiber';
@@ -12,6 +12,7 @@ import Controls from './componenets/Controls.jsx';
 import { Perf } from 'r3f-perf';
 import Loading from './componenets/Loading.jsx';
 import { KeyboardControls, PointerLockControls } from '@react-three/drei';
+import { useConfigurator } from "./contexts/Configurator";
 
 export function Floor(props) {
   return (
@@ -40,6 +41,19 @@ function App() {
 
 const urlParams = new URLSearchParams(window.location.search);
 const mode = urlParams.get('mode');
+
+const { selected, setSelected } = useConfigurator();
+
+const [showComponent, setShowComponent] = useState(false);
+
+const controlsRef = useRef();
+
+const handleClick = () => {
+  setShowComponent(!showComponent);
+  setSelected([]);
+}
+
+
 
 
   return (
@@ -75,9 +89,21 @@ const mode = urlParams.get('mode');
               </XR>
               <Controls />
               {/* <PointerLockControls/> */}
+              <PointerLockControls 
+                selector="#button"        
+                onUnlock={() => {
+                  setSelected([null, 0, [0, 8, 22]]);
+                  setShowComponent(false);
+                }}
+                onLock={() => setSelected([])}
+                enabled={showComponent}
+              />
             </Canvas>
             </KeyboardControls>
             <Interface />
+            <div id="instructions" style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white', fontSize: '2rem' }}>
+        <button id="button" onClick={handleClick}>Walk</button>
+      </div>
           </>
         )}
       </Suspense>

@@ -248,9 +248,9 @@ return (
     <Button variant="contained" onClick={() => setOpen(!open)} style={{ backgroundColor: "#242424", color: "#fff" }}>
       {open ? "Close Filter" : "Open Filter"}
     </Button>  
-    <Button onClick={() => selected.length > 0 ? setSelected([]): setSelected([null,0,[0,8,22]])} {...(selected.length > 0 ? {variant: "contained"} : {variant: "outlined", color:"error"})}>
+    {/* <Button onClick={() => selected.length > 0 ? setSelected([]): setSelected([null,0,[0,8,22]])} {...(selected.length > 0 ? {variant: "contained"} : {variant: "outlined", color:"error"})}>
       {selected.length > 0 ? "Spectate Mode" : "Exit Spectate Mode"}
-    </Button>
+    </Button> */}
     <Button onClick={() => window.location.href = "http://demo-matrix.netlify.app/?mode=vr"} variant="contained" style={{ backgroundColor: "#242424", color: "#fff" }}>
       VR Mode
     </Button>
