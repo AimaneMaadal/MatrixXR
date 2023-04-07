@@ -21,7 +21,7 @@ const DrawerNavigate = ({ variant, ...props }) => {
 const [open, setOpen] = useState(false);
 const [start, setStart] = useState(false);
 
-const { filterColor, setFilterColor, setPrice, category, setCategory, setBrand, brand, setRating, selected, setSelected, walk} = useConfigurator();
+const { filterColor, setFilterColor, setPrice, category, setCategory, setBrand, brand, setRating, selected, setSelected, walk, setWalk} = useConfigurator();
 
 const theme = createTheme({
 palette: {
@@ -265,6 +265,9 @@ return (
     </Button> */}
     <Button onClick={() => window.location.href = "http://demo-matrix.netlify.app/?mode=vr"} variant="contained" style={{ backgroundColor: "#242424", color: "#fff" }}>
       VR Mode
+    </Button>
+    <Button onClick={() => (setWalk(true), setSelected([]))} variant="contained" style={{ backgroundColor: "#242424", color: "#fff" }}>
+      Walk
     </Button>
   </div>
   : null

@@ -44,14 +44,6 @@ const mode = urlParams.get('mode');
 
 const { setSelected, walk, setWalk } = useConfigurator();
 
-const canvasRef = useRef();
-
-const handleClick = () => {
-  setWalk(!walk);
-  setSelected([]);
-}
-
-
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -71,7 +63,7 @@ const handleClick = () => {
                   { name: "right", keys: ["ArrowRight", "KeyD"] },
                   { name: "space", keys: ["Space"] },
               ]}>
-            <Canvas ref={canvasRef} shadows camera={{ position: [0, 4, 14], fov: 60 }} dpr={[1, 2]}>
+            <Canvas shadows camera={{ position: [0, 4, 14], fov: 60 }} dpr={[1, 2]}>
               <fog attach="fog" args={['#ffffff', 0.0002, 105]} />
               <XR>
                 <Lights />
@@ -99,13 +91,7 @@ const handleClick = () => {
 
             </Canvas>
             </KeyboardControls>
-            <Interface />
-            {!walk ?
-            <div id="instructions" style={{ position: 'absolute', top: '5%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white', fontSize: '2rem' }}>
-              <button id="button" onClick={handleClick}>Click to start</button>
-            </div>
-            : null}
-            
+            <Interface />            
           </>
         )}
       </Suspense>
