@@ -51,6 +51,10 @@ const handleClick = () => {
   setSelected([]);
 }
 
+useEffect(() => {
+  console.log("loaded");
+}, []);
+
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -95,7 +99,7 @@ const handleClick = () => {
             />
             : null
             }
-
+            {setSelected([null, 0, [0, 8, 22]])}
             </Canvas>
             </KeyboardControls>
             <Interface />
@@ -104,9 +108,7 @@ const handleClick = () => {
               <button id="button" onClick={handleClick}>Click to start</button>
             </div>
             : null}
-            <div id="instructions" style={{ position: 'absolute', top: '8%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: 'white', fontSize: '2rem' }}>
-              <button id="button" onClick={setSelected([null, 0, [0, 8, 22]])}>ready</button>
-            </div>
+            
           </>
         )}
       </Suspense>
