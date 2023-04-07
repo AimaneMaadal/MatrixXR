@@ -11,6 +11,7 @@ import VRInterface from './componenets/XR/VRInterface.jsx';
 import Controls from './componenets/Controls.jsx';
 import { Perf } from 'r3f-perf';
 import Loading from './componenets/Loading.jsx';
+import { KeyboardControls, PointerLockControls } from '@react-three/drei';
 
 export function Floor(props) {
   return (
@@ -52,6 +53,14 @@ const mode = urlParams.get('mode');
         ) : (
           <>
             {mode === 'vr' && <VRButton />}
+            <KeyboardControls
+    map={[
+        { name: "forward", keys: ["ArrowUp", "KeyW"] },
+        { name: "backward", keys: ["ArrowDown", "KeyS"] },
+        { name: "left", keys: ["ArrowLeft", "KeyA"] },
+        { name: "right", keys: ["ArrowRight", "KeyD"] },
+        { name: "space", keys: ["Space"] },
+    ]}>
             <Canvas shadows camera={{ position: [0, 4, 14], fov: 60 }} dpr={[1, 2]}>
               <fog attach="fog" args={['#ffffff', 0.0002, 105]} />
               <XR>
@@ -65,7 +74,9 @@ const mode = urlParams.get('mode');
                 {/* <Perf /> */}
               </XR>
               <Controls />
+              {/* <PointerLockControls/> */}
             </Canvas>
+            </KeyboardControls>
             <Interface />
           </>
         )}

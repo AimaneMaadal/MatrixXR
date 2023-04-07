@@ -125,4 +125,8 @@ span{
     flex-direction: column;
     gap: 1rem;
 }
-
+.test{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+}

@@ -25,6 +25,8 @@ export const ConfiguratorProvider = ({ children }) => {
 
   const [selected, setSelected] = useState([null, 0, [0, 8, 22]]);
 
+  const [mode, setMode] = useState("default");
+
   return (
     <ConfiguratorContext.Provider
       value={{
@@ -50,6 +52,8 @@ export const ConfiguratorProvider = ({ children }) => {
         setRating,
         selected,
         setSelected,
+        mode,
+        setMode,
       }}
     >
       {children}
