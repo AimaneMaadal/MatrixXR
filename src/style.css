@@ -130,3 +130,24 @@ span{
     top: 2%;
     right: 2%;
 }
+.start{
+    position: absolute;
+    width: 60%;
+    left: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    font-family: 'Funk', sans-serif;
+    font-size: 7rem;
+    text-align: center;
+    line-height: 1;
+    flex-direction: column;
+    color: #242424;
+}
+.start button{
+    font-size: 2rem;
+    font-family: 'Funk', sans-serif;
+    padding: 1rem 4rem;
+    margin-top: 2rem;
+}

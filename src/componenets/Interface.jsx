@@ -19,6 +19,7 @@ const maxPrice = Math.max(...multiArray.map((item) => item.price));
 
 const DrawerNavigate = ({ variant, ...props }) => {
 const [open, setOpen] = useState(false);
+const [start, setStart] = useState(false);
 
 const { filterColor, setFilterColor, setPrice, category, setCategory, setBrand, brand, setRating, selected, setSelected, walk} = useConfigurator();
 
@@ -100,6 +101,12 @@ useEffect(() => {
 return (
 <>
   <ThemeProvider theme={theme}>
+    {!start ? (
+    <div className="start">
+      Are u ready to start shopping?
+      <Button variant="contained" onClick={() => (setStart(true), setSelected([null, 0, [0, 8, 22]]))}>Yes</Button>
+    </div>  
+    ) : (null)}
     <div className="drawer" style={{ width: open ? "auto" : "0", padding: open ? "2rem" : "0" }}>
       <Typography variant="h2">FILTER</Typography>
       <Accordion sx={{ mb: 2, border: 'none', boxShadow: 'none', backgroundColor: 'transparent'}}>
@@ -248,7 +255,7 @@ return (
         </Typography>
       </div> : null
     }
-  { !walk ?
+  { !walk && start ?
   <div className="controls" style={{ right: open ? 550 : 50 }}>
     <Button variant="contained" onClick={() => setOpen(!open)} style={{ backgroundColor: "#242424", color: "#fff" }}>
       {open ? "Close Filter" : "Open Filter"}

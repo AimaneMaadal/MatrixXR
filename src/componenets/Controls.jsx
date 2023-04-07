@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useThree, useFrame } from 'react-three-fiber';
-import { useKeyboardControls } from "@react-three/drei"
+import { useKeyboardControls, Html } from "@react-three/drei"
 import * as THREE from 'three'
 import { useConfigurator } from "../contexts/Configurator";
 import { PointerLockControls } from '@react-three/drei'
@@ -55,8 +55,8 @@ export const Player = props => {
             cameraTarget.copy(bodyPosition)
             cameraTarget.y += 0.25
     
-            smoothedCameraPosition.lerp(cameraPosition, 0.5)
-            smoothedCameraTarget.lerp(cameraTarget, 0.5)
+            smoothedCameraPosition.lerp(cameraPosition, 5 * delta)
+            smoothedCameraTarget.lerp(cameraTarget, 5 * delta)
     
             state.camera.position.copy(smoothedCameraPosition)  
     

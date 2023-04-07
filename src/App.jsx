@@ -51,9 +51,6 @@ const handleClick = () => {
   setSelected([]);
 }
 
-useEffect(() => {
-  console.log("loaded");
-}, []);
 
   return (
     <>
@@ -81,7 +78,7 @@ useEffect(() => {
                 {mode === 'vr' && <VRInterface />}
                 <Controllers />
                 <TeleportTravel useNormal={false}>
-                  <Floor size={[200, 150]} />
+                  <Floor size={[400, 550]} />
                 </TeleportTravel>
                 <Experience />
                 {/* <Perf /> */}
@@ -99,7 +96,7 @@ useEffect(() => {
             />
             : null
             }
-            {setSelected([null, 0, [0, 8, 22]])}
+
             </Canvas>
             </KeyboardControls>
             <Interface />
