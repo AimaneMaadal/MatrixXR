@@ -272,6 +272,14 @@ return (
   </div>
   : null
   }
+  { walk && start ?
+    <div className="walk">
+    <b>CLICK</b> ON YOUR SCREEN TO LOOK AROUND<br/>
+    WALK WITH <b>WASD</b> OR <b>ARROW KEYS</b><br/>
+    PRESS <b>ESC</b> TO EXIT WALK MODE
+  </div>
+  : null
+  }
   </ThemeProvider>
 </>
 );
