@@ -63,7 +63,7 @@ const { setSelected, walk, setWalk } = useConfigurator();
                   { name: "right", keys: ["ArrowRight", "KeyD"] },
                   { name: "space", keys: ["Space"] },
               ]}>
-            <Canvas shadows camera={{ position: [0, 4, 14], fov: 60 }} dpr={[1, 2]}>
+            <Canvas shadows camera={{ position: [0, 8, 22], fov: 60 }} dpr={[1, 2]}>
               <fog attach="fog" args={['#ffffff', 0.0002, 105]} />
               <XR>
                 <Lights />
