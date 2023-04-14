@@ -255,7 +255,7 @@ return (
         <Typography variant="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
         </Typography>
         { selected[3] === "/models/couch006.glb" ?
-        <QRCode className="selectedsvg" value={"https://demo-matrix.netlify.app/ar.html?id="+selected[3].slice(selected[3].length-7, selected[3].length-4)+"&mat="+selected[9].slice(9)} 
+        <QRCode className="selectedsvg" value={"https://demo-matrix.netlify.app/?view=ar&id="+selected[3].slice(selected[3].length-7, selected[3].length-4)+"&mat="+selected[9].slice(9)} 
           // value={selected[3].slice(selected[3].length-7, selected[3].length-4)+" "+selected[9].slice(9)} 
           size={200} 
           backgroundColor="transparent" 
