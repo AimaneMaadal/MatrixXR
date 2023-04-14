@@ -105,7 +105,7 @@ return (
     {!start ? (
     <div className="start">
       Are u ready to start shopping?
-      <Button variant="contained" onClick={() => (setStart(true), setSelected([null, 0, [0, 8, 22]]))}>Yes</Button>
+      <Button variant="contained" onClick={() => (setStart(true), setSelected([null, 0, [0, 2, 19]]))}>Yes</Button>
     </div>  
     ) : (null)}
     <div className="drawer" style={{ width: open ? "auto" : "0", padding: open ? "2rem" : "0" }}>
@@ -256,7 +256,6 @@ return (
         </Typography>
         { selected[3] === "/models/couch006.glb" ?
         <QRCode className="selectedsvg" value={"https://demo-matrix.netlify.app/?view=ar&id="+selected[3].slice(selected[3].length-7, selected[3].length-4)+"&mat="+selected[9].slice(9)} 
-          // value={selected[3].slice(selected[3].length-7, selected[3].length-4)+" "+selected[9].slice(9)} 
           size={200} 
           backgroundColor="transparent" 
           fgColor="#242424" />
@@ -268,9 +267,6 @@ return (
     <Button variant="contained" onClick={() => setOpen(!open)} style={{ backgroundColor: "#242424", color: "#fff" }}>
       {open ? "Close Filter" : "Open Filter"}
     </Button>  
-    {/* <Button onClick={() => selected.length > 0 ? setSelected([]): setSelected([null,0,[0,8,22]])} {...(selected.length > 0 ? {variant: "contained"} : {variant: "outlined", color:"error"})}>
-      {selected.length > 0 ? "Spectate Mode" : "Exit Spectate Mode"}
-    </Button> */}
     <Button onClick={() => window.location.href = "http://demo-matrix.netlify.app/?mode=vr"} variant="contained" style={{ backgroundColor: "#242424", color: "#fff" }}>
       VR Mode
     </Button>
