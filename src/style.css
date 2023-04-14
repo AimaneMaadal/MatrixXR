@@ -85,6 +85,13 @@ span{
     max-width: 35%;
     border-radius: 1rem;
 }
+.selectedsvg{
+    background-color: white;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
 .Loading-container{
     width: 100%;
     height: 100%;
@@ -159,4 +166,12 @@ span{
 }
 b{
     color: #242424
+}
+model-viewer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }

@@ -6,6 +6,7 @@ import { Stack, Slider, Chip, Typography, Accordion, AccordionSummary, Accordion
 Avatar, Rating, FormControlLabel, FormControl, RadioGroup, Radio, Modal } from "@mui/material";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useMemo } from 'react';
+import QRCode from 'react-qr-code';
 
 import myData from '../data/data.json';
 
@@ -41,7 +42,6 @@ fontFamily: 'Montserrat',
 function valuetext(value) {
 return `${value}`;
 }
-
 
 const [value, setValue] = useState([minPrice, maxPrice]);
 
@@ -97,6 +97,7 @@ useEffect(() => {
     setOpen(false);
   }
 }, [walk])
+
 
 return (
 <>
@@ -253,6 +254,13 @@ return (
         <Rating name="read-only" value={selected[6]} sx={{'& .MuiRating-iconFilled': {color: '#242424',},}} readOnly />
         <Typography variant="p">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
         </Typography>
+        { selected[3] === "/models/couch006.glb" ?
+        <QRCode className="selectedsvg" value={"https://demo-matrix.netlify.app/ar.html?id="+selected[3].slice(selected[3].length-7, selected[3].length-4)+"&mat="+selected[9].slice(9)} 
+          // value={selected[3].slice(selected[3].length-7, selected[3].length-4)+" "+selected[9].slice(9)} 
+          size={200} 
+          backgroundColor="transparent" 
+          fgColor="#242424" />
+        : null }
       </div> : null
     }
   { !walk && start ?

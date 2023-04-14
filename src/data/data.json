@@ -671,7 +671,7 @@
         "color": "Black",
         "materials": {
             "map": "textures/fabric008"
-        }   
+        }
     },
     {
         "gltf": "/models/couch004.glb",

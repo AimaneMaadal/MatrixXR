@@ -18,7 +18,7 @@ export function Bank(props) {
 
     const { setCursor, selected, setSelected, setWalk, walk } = useConfigurator()
 
-    const info = [index, props.name, props.newPosition, props.gltf, props.scale, props.rotation, props.rating, props.price, props.category]
+    const info = [index, props.name, props.newPosition, props.gltf, props.scale, props.rotation, props.rating, props.price, props.category, props.materials.map]
     
     useFrame(() =>
     {
@@ -37,6 +37,7 @@ export function Bank(props) {
         }
       }
     });
+
     useFrame((state, delta) => {
       if (clicked && props.visible && selected[0] === index) {
         try {
@@ -70,7 +71,6 @@ export function Bank(props) {
       }
     });
     
-
     const [colorMap, displacementMap, normalMap, roughnessMap, aoMap] = useTexture([
       props.materials.map + '/Substance_Graph_BaseColor.webp',
       props.materials.map + '/Substance_Graph_Height.webp',
@@ -83,11 +83,12 @@ export function Bank(props) {
     colorMap.wrapT = THREE.RepeatWrapping;
     colorMap.repeat.set(12,12);
 
-    
+    normalMap.wrapS = THREE.RepeatWrapping;
+    normalMap.wrapT = THREE.RepeatWrapping;
+    normalMap.repeat.set(12,12);
 
     const shadowMap = useTexture("textures/shadows/"+props.category+".png");
 
-    // get the image data of the texture
     const image = shadowMap.image;
     const shadowWidth = image.width;
     const shadowHeight = image.height;
@@ -104,7 +105,7 @@ export function Bank(props) {
             onPointerOver={(e) => (e.stopPropagation(), setHovered(true), setCursor(true))}
             onPointerOut={(e) => (setHovered(false), setCursor(false))}
         >
-          <meshStandardMaterial roughness={5} map={colorMap}  aoMap={aoMap} displacementMap={displacementMap} displacementScale={0.2} normalMap={normalMap} />
+          <meshStandardMaterial roughness={1} map={colorMap}  aoMap={aoMap} displacementMap={displacementMap} displacementScale={0.2} normalMap={normalMap} />
         </mesh>
         <mesh
             position={

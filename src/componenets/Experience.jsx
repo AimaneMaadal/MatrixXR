@@ -104,8 +104,6 @@ export default function Experience()
       >
       No products found
       </Text>
-        
-
 
     </>
 }

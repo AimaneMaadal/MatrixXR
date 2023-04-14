@@ -41,8 +41,8 @@ export const Player = props => {
 
         if (selected[0] !== undefined) {
             const bodyPosition = ref.current.position
-            
-            const poss = new THREE.Vector3(selected[2][0], selected[2][1], selected[2][2])
+
+            const poss = new THREE.Vector3(selected[2][0]-1, selected[2][1], selected[2][2])
     
             bodyPosition.lerp(poss, 0.5)
         
@@ -109,7 +109,7 @@ export const Player = props => {
             const cameraPosition = new THREE.Vector3()
             cameraPosition.copy(bodyPosition)
             cameraPosition.z += 2.25
-            cameraPosition.y = 1.5
+            cameraPosition.y = 0.8
     
             const cameraTarget = new THREE.Vector3()
             cameraTarget.copy(bodyPosition)
