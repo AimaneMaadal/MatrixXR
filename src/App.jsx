@@ -73,7 +73,7 @@ const { setSelected, walk, setWalk, setSelectedWalk } = useConfigurator();
                   <Floor size={[400, 550]} />
                 </TeleportTravel>
                 <Experience />
-                <Perf />
+                {/* <Perf /> */}
               </XR>
               <Controls />
             {
