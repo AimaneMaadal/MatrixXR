@@ -133,8 +133,9 @@ const DrawerNavigate = ({ variant, ...props }) => {
     }
   }, [walk]);
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const mode = urlParams.get("mode");
 
-  console.log(selectedWalk);
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -509,7 +510,9 @@ const DrawerNavigate = ({ variant, ...props }) => {
             </Typography>
             {selected[3] === "/models/couch006.glb" ? (
               <>
-                <Typography variant="h5">Bekijk deze zetel in Augmented Reality</Typography>
+                <Typography variant="h5">
+                  Bekijk deze zetel in Augmented Reality
+                </Typography>
                 <QRCode
                   className="selectedsvg"
                   value={
@@ -558,27 +561,29 @@ const DrawerNavigate = ({ variant, ...props }) => {
               Lorem Ipsum
             </Typography>
             {selectedWalk[3] === "/models/couch006.glb" ? (
-              <>    
-              <Typography variant="h5">Bekijk deze zetel in Augmented Reality</Typography>          
-              <QRCode
-                className="selectedsvg"
-                value={
-                  "https://demo-matrix.netlify.app/?view=ar&id=" +
-                  selectedWalk[3].slice(
-                    selectedWalk[3].length - 7,
-                    selectedWalk[3].length - 4
-                  ) +
-                  "&mat=" +
-                  selectedWalk[9].slice(9)
-                }
-                size={200}
-                backgroundColor="transparent"
-                fgColor="#242424"
-              />
+              <>
+                <Typography variant="h5">
+                  Bekijk deze zetel in Augmented Reality
+                </Typography>
+                <QRCode
+                  className="selectedsvg"
+                  value={
+                    "https://demo-matrix.netlify.app/?view=ar&id=" +
+                    selectedWalk[3].slice(
+                      selectedWalk[3].length - 7,
+                      selectedWalk[3].length - 4
+                    ) +
+                    "&mat=" +
+                    selectedWalk[9].slice(9)
+                  }
+                  size={200}
+                  backgroundColor="transparent"
+                  fgColor="#242424"
+                />
               </>
             ) : null}
           </div>
-          ) : null}
+        ) : null}
         {!walk && start ? (
           <div className="controls" style={{ right: open ? 550 : 50 }}>
             <Button
@@ -588,16 +593,18 @@ const DrawerNavigate = ({ variant, ...props }) => {
             >
               {open ? "Close Filter" : "Open Filter"}
             </Button>
-            <Button
-              onClick={() =>
-                (window.location.href =
-                  "http://demo-matrix.netlify.app/?mode=vr")
-              }
-              variant="contained"
-              style={{ backgroundColor: "#242424", color: "#fff" }}
-            >
-              VR Mode
-            </Button>
+            {!mode ? (
+              <Button
+                onClick={() =>
+                  (window.location.href =
+                    "http://demo-matrix.netlify.app/?mode=vr")
+                }
+                variant="contained"
+                style={{ backgroundColor: "#242424", color: "#fff" }}
+              >
+                VR Mode
+              </Button>
+            ) : null}
             <Button
               onClick={() => (setWalk(true), setSelected([]))}
               variant="contained"
@@ -617,9 +624,7 @@ const DrawerNavigate = ({ variant, ...props }) => {
           </div>
         ) : null}
       </ThemeProvider>
-      {walk ? (
-        <div className="cursor"></div>
-      ) : ( null )}
+      {walk ? <div className="cursor"></div> : null}
     </>
   );
 };
