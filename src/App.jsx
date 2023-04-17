@@ -1,5 +1,5 @@
 import React, { useState, Suspense, useEffect, useRef } from 'react';
-import { XR, Controllers, VRButton, ARButton } from '@react-three/xr';
+import { XR, Controllers, VRButton } from '@react-three/xr';
 import '@react-three/fiber';
 import { Canvas } from '@react-three/fiber';
 import './style.css';
@@ -54,7 +54,7 @@ const { setSelected, walk, setWalk, setSelectedWalk } = useConfigurator();
           </div>
         ) : (
           <>
-            {mode === 'vr' && <ARButton />}
+            {mode === 'vr' && <VRButton />}
             <KeyboardControls
               map={[
                   { name: "forward", keys: ["ArrowUp", "KeyW"] },
@@ -73,10 +73,9 @@ const { setSelected, walk, setWalk, setSelectedWalk } = useConfigurator();
                   <Floor size={[400, 550]} />
                 </TeleportTravel>
                 <Experience />
-                {/* <Perf /> */}
+                <Perf />
               </XR>
               <Controls />
-              {/* <PointerLockControls/> */}
             {
               walk ? 
               <PointerLockControls    
