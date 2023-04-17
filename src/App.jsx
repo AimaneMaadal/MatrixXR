@@ -42,7 +42,7 @@ function App() {
 const urlParams = new URLSearchParams(window.location.search);
 const mode = urlParams.get('mode');
 
-const { setSelected, walk, setWalk } = useConfigurator();
+const { setSelected, walk, setWalk, setSelectedWalk } = useConfigurator();
 
   return (
     <>
@@ -83,6 +83,7 @@ const { setSelected, walk, setWalk } = useConfigurator();
               onUnlock={() => {
                 setSelected([null, 0, [0, 8, 22]]);
                 setWalk(false);
+                setSelectedWalk([null]);
               }}
               onLock={() => setSelected([])}
             />

@@ -27,6 +27,8 @@ export const ConfiguratorProvider = ({ children }) => {
 
   const [walk, setWalk] = useState(false);
 
+  const [selectedWalk, setSelectedWalk] = useState([null]);
+
   return (
     <ConfiguratorContext.Provider
       value={{
@@ -54,6 +56,8 @@ export const ConfiguratorProvider = ({ children }) => {
         setSelected,
         walk,
         setWalk,
+        selectedWalk,
+        setSelectedWalk,
       }}
     >
       {children}
