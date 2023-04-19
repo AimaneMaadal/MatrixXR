@@ -36,7 +36,6 @@ const maxPrice = Math.max(...multiArray.map((item) => item.price));
 
 const DrawerNavigate = ({ variant, ...props }) => {
   const [open, setOpen] = useState(false);
-  const [start, setStart] = useState(false);
 
   const {
     filterColor,
@@ -52,6 +51,8 @@ const DrawerNavigate = ({ variant, ...props }) => {
     walk,
     setWalk,
     selectedWalk,
+    start,
+    setStart,
   } = useConfigurator();
 
   const theme = createTheme({
@@ -144,9 +145,7 @@ const DrawerNavigate = ({ variant, ...props }) => {
             Are u ready to start shopping?
             <Button
               variant="contained"
-              onClick={() => (
-                setStart(true), setSelected([null, 0, [0, 2, 19]])
-              )}
+              onClick={() => (setWalk(true), setSelected([]), setStart(true))}
             >
               Yes
             </Button>

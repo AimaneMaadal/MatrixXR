@@ -58,14 +58,14 @@ let multiArrayWithPositions = positionToMatrixPosition(multiArray);
 
 export default function Experience()
 {
-  const { matrix, setMatrix, filterColor, price, category, brand, rating, setSelected } = useConfigurator();
+  const { matrix, setMatrix, filterColor, price, category, brand, rating, start } = useConfigurator();
 
   setMatrix(positionToMatrixNewPosition(multiArrayWithPositions));
 
   let results
 
   for (let i = 0; i < multiArrayWithPositions.length; i++) {
-    if ((filterColor.includes(multiArrayWithPositions[i].color) || filterColor.length === 0 ) && (multiArrayWithPositions[i].price >= price[0] && multiArrayWithPositions[i].price <= price[1]) && (category.includes(multiArrayWithPositions[i].category) || category.length === 0) && (brand.includes(multiArrayWithPositions[i].brand) || brand.length === 0) && (multiArrayWithPositions[i].rating >= rating)) {
+    if ((filterColor.includes(multiArrayWithPositions[i].color) || filterColor.length === 0 ) && (multiArrayWithPositions[i].price >= price[0] && multiArrayWithPositions[i].price <= price[1]) && (category.includes(multiArrayWithPositions[i].category) || category.length === 0) && (brand.includes(multiArrayWithPositions[i].brand) || brand.length === 0) && (multiArrayWithPositions[i].rating >= rating) && start === true) {
       multiArrayWithPositions[i].visible = true;
       for (let j = 0; j < matrix.length; j++) {
         if (matrix[j].free === true) {
@@ -80,7 +80,7 @@ export default function Experience()
     }
   }
   let amount = multiArrayWithPositions.filter((obj) => obj.visible === true).length;
-  if (amount === 0) {
+  if (amount === 0 && start === true) {
     results = 0;
   }
   else {
