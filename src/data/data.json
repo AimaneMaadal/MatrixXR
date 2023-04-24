@@ -1,181 +1,26 @@
 [
     {
-        "gltf": "/models/couch005.glb",
+        "gltf": "/models/couch001.glb",
         "category": "couch",
-        "name": "Brown Velvet 2zit",
-        "brand": "Leather Store",
+        "name": "Bankje",
+        "brand": "Store 1",
         "rating": 4,
         "price": 304
         ,
         "color": "Black",
-        "materials": {
-            "map": "textures/fabric007"
-        }   
-    },
-    {
-        "gltf": "/models/couch005.glb",
-        "category": "couch",
-        "name": "Lime Sit",
-        "brand": "Green Furniture",
-        "rating": 5,
-        "price": 425
-        ,
-        "color": "Lime",
         "materials": {
             "map": "textures/fabric001"
         }   
     },
     {
-        "gltf": "/models/couch005.glb",
+        "gltf": "/models/couch002.glb",
         "category": "couch",
-        "name": "Vintage 2zit",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 199
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/fabric003"
-        }   
-    },
-    {
-        "gltf": "/models/couch005.glb",
-        "category": "couch",
-        "name": "White Silk",
-        "brand": "Classy Furniture",
-        "rating": 5,
-        "price": 199
-        ,
-        "color": "White",
-        "materials": {
-            "map": "textures/fabric004"
-        }   
-    },
-    {
-        "gltf": "/models/couch005.glb",
-        "category": "couch",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 356
-        ,
-        "color": "Beige",
-        "materials": {
-            "map": "textures/fabric005"
-        }   
-    },
-    {
-        "gltf": "/models/couch005.glb",
-        "category": "couch",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 255
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric006"
-        }   
-    },
-    {
-        "gltf": "/models/couch005.glb",
-        "category": "couch",
-        "name": "Lazy Couch",
-        "brand": "Couch King",
-        "rating": 4,
-        "price": 258
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric002"
-        }   
-    }, {
-        "gltf": "/models/couch005.glb",
-        "category": "couch",
-        "name": "CouchIn",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 145
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric008"
-        }   
-    },
-    {
-        "gltf": "/models/couch005.glb",
-        "category": "couch",
-        "name": "Classic",
-        "brand": "Classic's",
-        "rating": 5,
-        "price": 825
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/leather001"
-        }   
-    },
-    {
-        "gltf": "/models/couch005.glb",
-        "category": "couch",
-        "name": "Fancy",
-        "brand": "Classic's",
-        "rating": 4,
-        "price": 365
-        ,
-        "color": "Emerald",
-        "materials": {
-            "map": "textures/leather002"
-        }   
-    },
-    {
-        "gltf": "/models/couch005.glb",
-        "category": "couch",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 410
-        ,
-        "color": "White",
-        "materials": {
-            "map": "textures/fabric009"
-        }   
-    },
-    {
-        "gltf": "/models/couch005.glb",
-        "category": "couch",
-        "name": "Black Classic",
-        "brand": "Classic's",
-        "rating": 5,
-        "price": 950
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/leather003"
-        }   
-    },
-    {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "Brown Velvet 2zit",
-        "brand": "Leather Store",
+        "name": "Bankje",
+        "brand": "Store 1",
         "rating": 4,
         "price": 304
         ,
         "color": "Black",
-        "materials": {
-            "map": "textures/fabric007"
-        }   
-    },
-    {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "Lime Sit",
-        "brand": "Green Furniture",
-        "rating": 5,
-        "price": 425
-        ,
-        "color": "Lime",
         "materials": {
             "map": "textures/fabric001"
         }   
@@ -183,427 +28,12 @@
     {
         "gltf": "/models/couch003.glb",
         "category": "couch",
-        "name": "Vintage 2zit",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 199
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/fabric003"
-        }   
-    },
-    {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "White Silk",
-        "brand": "Classy Furniture",
-        "rating": 5,
-        "price": 199
-        ,
-        "color": "White",
-        "materials": {
-            "map": "textures/fabric004"
-        }   
-    },
-    {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 255
-        ,
-        "color": "Beige",
-        "materials": {
-            "map": "textures/fabric005"
-        }   
-    },
-    {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 255
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric006"
-        }   
-    },
-    {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "Lazy Couch",
-        "brand": "Couch King",
-        "rating": 4,
-        "price": 258
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric002"
-        }   
-    }, {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "CouchIn",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 145
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric008"
-        }   
-    },
-    {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "Classic",
-        "brand": "Classic's",
-        "rating": 5,
-        "price": 825
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/leather001"
-        }   
-    },
-    {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "Fancy",
-        "brand": "Classic's",
-        "rating": 4,
-        "price": 365
-        ,
-        "color": "Emerald",
-        "materials": {
-            "map": "textures/leather002"
-        }   
-    },
-    {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 410
-        ,
-        "color": "White",
-        "materials": {
-            "map": "textures/fabric009"
-        }   
-    },
-    {
-        "gltf": "/models/couch003.glb",
-        "category": "couch",
-        "name": "Black Classic",
-        "brand": "Classic's",
-        "rating": 5,
-        "price": 950
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/leather003"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "Brown Velvet 2zit",
-        "brand": "Leather Store",
+        "name": "Bankje",
+        "brand": "Store 1",
         "rating": 4,
         "price": 304
         ,
         "color": "Black",
-        "materials": {
-            "map": "textures/fabric007"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "Lime Sit",
-        "brand": "Green Furniture",
-        "rating": 5,
-        "price": 425
-        ,
-        "color": "Lime",
-        "materials": {
-            "map": "textures/fabric001"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "Vintage 2zit",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 199
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/fabric003"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "White Silk",
-        "brand": "Classy Furniture",
-        "rating": 5,
-        "price": 199
-        ,
-        "color": "White",
-        "materials": {
-            "map": "textures/fabric004"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 255
-        ,
-        "color": "Beige",
-        "materials": {
-            "map": "textures/fabric005"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 255
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric006"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "Lazy Couch",
-        "brand": "Couch King",
-        "rating": 4,
-        "price": 258
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric002"
-        }   
-    }, {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "CouchIn",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 145
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric008"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "Classic",
-        "brand": "Classic's",
-        "rating": 5,
-        "price": 825
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/leather001"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "Fancy",
-        "brand": "Classic's",
-        "rating": 4,
-        "price": 365
-        ,
-        "color": "Emerald",
-        "materials": {
-            "map": "textures/leather002"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 410
-        ,
-        "color": "White",
-        "materials": {
-            "map": "textures/fabric009"
-        }   
-    },
-    {
-        "gltf": "/models/chair002.glb",
-        "category": "chair",
-        "name": "Black Classic",
-        "brand": "Classic's",
-        "rating": 5,
-        "price": 950
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/leather003"
-        }   
-    },
-    {
-        "gltf": "/models/chair003.glb",
-        "category": "chair",
-        "name": "Brown Velvet 2zit",
-        "brand": "Leather Store",
-        "rating": 4,
-        "price": 304
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric007"
-        }   
-    },
-    {
-        "gltf": "/models/chair003.glb",
-        "category": "chair",
-        "name": "Lime Sit",
-        "brand": "Green Furniture",
-        "rating": 5,
-        "price": 415
-        ,
-        "color": "Lime",
-        "materials": {
-            "map": "textures/fabric001"
-        }   
-    },
-    {
-        "gltf": "/models/chair003.glb",
-        "category": "chair",
-        "name": "Vintage 2zit",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 199
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/fabric003"
-        }   
-    },
-    {
-        "gltf": "/models/chair003.glb",
-        "category": "chair",
-        "name": "White Silk",
-        "brand": "Classy Furniture",
-        "rating": 5,
-        "price": 199
-        ,
-        "color": "White",
-        "materials": {
-            "map": "textures/fabric004"
-        }   
-    },
-    
-    {
-        "gltf": "/models/chair003.glb",
-        "category": "chair",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 255
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric006"
-        }   
-    },
-    {
-        "gltf": "/models/chair003.glb",
-        "category": "chair",
-        "name": "Lazy Couch",
-        "brand": "Couch King",
-        "rating": 4,
-        "price": 258
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric002"
-        }   
-    }, {
-        "gltf": "/models/chair003.glb",
-        "category": "chair",
-        "name": "CouchIn",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 145
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric008"
-        }   
-    },
-    {
-        "gltf": "/models/chair003.glb",
-        "category": "chair",
-        "name": "Classic",
-        "brand": "Classic's",
-        "rating": 5,
-        "price": 825
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/leather001"
-        }   
-    },
-
-    {
-        "gltf": "/models/chair003.glb",
-        "category": "chair",
-        "name": "Black Classic",
-        "brand": "Classic's",
-        "rating": 5,
-        "price": 950
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/leather003"
-        }   
-    },
-    {
-        "gltf": "/models/couch004.glb",
-        "category": "couch",
-        "name": "Brown Velvet 2zit",
-        "brand": "Leather Store",
-        "rating": 4,
-        "price": 304
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric007"
-        }   
-    },
-    {
-        "gltf": "/models/couch004.glb",
-        "category": "couch",
-        "name": "Lime Sit",
-        "brand": "Green Furniture",
-        "rating": 5,
-        "price": 425
-        ,
-        "color": "Lime",
         "materials": {
             "map": "textures/fabric001"
         }   
@@ -611,103 +41,25 @@
     {
         "gltf": "/models/couch004.glb",
         "category": "couch",
-        "name": "Vintage 2zit",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 199
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/fabric003"
-        }   
-    },
-    {
-        "gltf": "/models/couch004.glb",
-        "category": "couch",
-        "name": "White Silk",
-        "brand": "Classy Furniture",
-        "rating": 5,
-        "price": 199
-        ,
-        "color": "White",
-        "materials": {
-            "map": "textures/fabric004"
-        }   
-    },
-    
-    {
-        "gltf": "/models/couch004.glb",
-        "category": "couch",
-        "name": "Just a couch",
-        "brand": "IKEA",
-        "rating": 4,
-        "price": 255
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric006"
-        }   
-    },
-    {
-        "gltf": "/models/couch004.glb",
-        "category": "couch",
-        "name": "Lazy Couch",
-        "brand": "Couch King",
-        "rating": 4,
-        "price": 258
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric002"
-        }   
-    }, {
-        "gltf": "/models/couch004.glb",
-        "category": "couch",
-        "name": "CouchIn",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 145
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric008"
-        }
-    },
-    {
-        "gltf": "/models/couch004.glb",
-        "category": "couch",
-        "name": "Classic",
-        "brand": "Classic's",
-        "rating": 5,
-        "price": 825
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/leather001"
-        }   
-    },
-    {
-        "gltf": "/models/couch006.glb",
-        "category": "couch",
-        "name": "Brown Velvet 2zit",
-        "brand": "Leather Store",
+        "name": "Bankje",
+        "brand": "Store 1",
         "rating": 4,
         "price": 304
         ,
         "color": "Black",
         "materials": {
-            "map": "textures/fabric007"
+            "map": "textures/fabric001"
         }   
     },
     {
-        "gltf": "/models/couch006.glb",
+        "gltf": "/models/couch005.glb",
         "category": "couch",
-        "name": "Lime Sit",
-        "brand": "Green Furniture",
-        "rating": 5,
-        "price": 425
+        "name": "Bankje",
+        "brand": "Store 1",
+        "rating": 4,
+        "price": 304
         ,
-        "color": "Lime",
+        "color": "Black",
         "materials": {
             "map": "textures/fabric001"
         }   
@@ -715,79 +67,40 @@
     {
         "gltf": "/models/couch006.glb",
         "category": "couch",
-        "name": "Vintage 2zit",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 199
-        ,
-        "color": "Brown",
-        "materials": {
-            "map": "textures/fabric003"
-        }   
-    },
-    {
-        "gltf": "/models/couch006.glb",
-        "category": "couch",
-        "name": "White Silk",
-        "brand": "Classy Furniture",
-        "rating": 5,
-        "price": 199
-        ,
-        "color": "White",
-        "materials": {
-            "map": "textures/fabric004"
-        }   
-    },
-    
-    {
-        "gltf": "/models/couch006.glb",
-        "category": "couch",
-        "name": "Just a couch",
-        "brand": "IKEA",
+        "name": "Bankje",
+        "brand": "Store 1",
         "rating": 4,
-        "price": 255
+        "price": 304
         ,
         "color": "Black",
         "materials": {
-            "map": "textures/fabric006"
+            "map": "textures/fabric001"
         }   
     },
     {
-        "gltf": "/models/couch006.glb",
+        "gltf": "/models/chair002.glb",
         "category": "couch",
-        "name": "Lazy Couch",
-        "brand": "Couch King",
+        "name": "Bankje",
+        "brand": "Store 1",
         "rating": 4,
-        "price": 258
+        "price": 304
         ,
         "color": "Black",
         "materials": {
-            "map": "textures/fabric002"
-        }   
-    }, {
-        "gltf": "/models/couch006.glb",
-        "category": "couch",
-        "name": "CouchIn",
-        "brand": "IKEA",
-        "rating": 3,
-        "price": 145
-        ,
-        "color": "Black",
-        "materials": {
-            "map": "textures/fabric008"
+            "map": "textures/fabric001"
         }   
     },
     {
-        "gltf": "/models/couch006.glb",
+        "gltf": "/models/chair003.glb",
         "category": "couch",
-        "name": "Classic",
-        "brand": "Classic's",
-        "rating": 5,
-        "price": 825
+        "name": "Bankje",
+        "brand": "Store 1",
+        "rating": 4,
+        "price": 304
         ,
-        "color": "Brown",
+        "color": "Black",
         "materials": {
-            "map": "textures/leather001"
+            "map": "textures/fabric001"
         }   
     }
 ]

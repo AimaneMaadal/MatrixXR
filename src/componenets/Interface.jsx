@@ -18,11 +18,13 @@ import {
   FormControl,
   RadioGroup,
   Radio,
-  Modal,
+  NativeSelect,
+
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useMemo } from "react";
 import QRCode from "react-qr-code";
+
 
 import myData from "../data/data.json";
 
@@ -53,6 +55,9 @@ const DrawerNavigate = ({ variant, ...props }) => {
     selectedWalk,
     start,
     setStart,
+    InputLabel,
+    setTexture,
+    texture,
   } = useConfigurator();
 
   const theme = createTheme({
@@ -136,6 +141,10 @@ const DrawerNavigate = ({ variant, ...props }) => {
 
   const urlParams = new URLSearchParams(window.location.search);
   const mode = urlParams.get("mode");
+
+  const handleChange2 = (event) => {
+    setTexture(event.target.value);
+  };
 
   return (
     <>
@@ -479,6 +488,11 @@ const DrawerNavigate = ({ variant, ...props }) => {
             RESET
           </Button>
         </div>
+
+
+
+
+
         {selected && selected.length > 3 ? (
           <div className="selected">
             <Typography variant="h1">{selected[1]}</Typography>
@@ -489,6 +503,22 @@ const DrawerNavigate = ({ variant, ...props }) => {
               color="primary"
               sx={{ width: 100, height: 30, borderRadius: 5, mb: 2 }}
             />
+            <NativeSelect id="select" onChange={handleChange2}>
+              <option value="fabric004">default</option>
+              <option value="fabric001">Fabric 001</option>
+              <option value="fabric002">Fabric 002</option>
+              <option value="fabric003">Fabric 003</option>
+              <option value="fabric004">Fabric 004</option>
+              <option value="fabric005">Fabric 005</option>
+              <option value="fabric006">Fabric 006</option>
+              <option value="fabric007">Fabric 007</option>
+              <option value="fabric008">Fabric 008</option>
+              <option value="fabric009">Fabric 009</option>
+              <option value="fabric010">Fabric 010</option>
+              <option value="leather001">Leather 001</option>
+              <option value="leather002">Leather 002</option>
+              <option value="leather003">Leather 003</option>
+            </NativeSelect>
             <Rating
               name="read-only"
               value={selected[6]}
@@ -507,6 +537,7 @@ const DrawerNavigate = ({ variant, ...props }) => {
               publishing software like Aldus PageMaker including versions of
               Lorem Ipsum
             </Typography>
+            {texture}
             {selected[3] === "/models/couch006.glb" ? (
               <>
                 <Typography variant="h5">
@@ -531,6 +562,11 @@ const DrawerNavigate = ({ variant, ...props }) => {
             ) : null}
           </div>
         ) : null}
+
+
+
+
+
         {selectedWalk && selectedWalk.length > 3 ? (
           <div className="selected">
             <Typography variant="h1">{selectedWalk[1]}</Typography>
@@ -615,11 +651,11 @@ const DrawerNavigate = ({ variant, ...props }) => {
         ) : null}
         {walk && start ? (
           <div className="walk">
+            PRESS <b>ESC</b> TO EXIT WALK MODE AND <b>FILTER</b> PRODUCTS
+            <br />
             <b>CLICK</b> ON YOUR SCREEN TO LOOK AROUND
             <br />
             WALK WITH <b>WASD</b> OR <b>ARROW KEYS</b>
-            <br />
-            PRESS <b>ESC</b> TO EXIT WALK MODE
           </div>
         ) : null}
       </ThemeProvider>
