@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsScreenSmall(window.innerWidth < 800);
+      setIsScreenSmall(window.innerWidth < 300);
     };
     handleResize();
     window.addEventListener('resize', handleResize);
