@@ -36,8 +36,7 @@ const maxPrice = Math.max(...multiArray.map((item) => item.price));
 
 const DrawerNavigate = ({ variant, ...props }) => {
   const [open, setOpen] = useState(false);
-  const [start, setStart] = useState(false);
-
+  
   const {
     filterColor,
     setFilterColor,
@@ -52,6 +51,8 @@ const DrawerNavigate = ({ variant, ...props }) => {
     walk,
     setWalk,
     selectedWalk,
+    start,
+    setStart,
   } = useConfigurator();
 
   const theme = createTheme({

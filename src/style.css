@@ -186,3 +186,9 @@ model-viewer{
     box-shadow: 0 0 3px rgba(218, 218, 218, 0.25);
     border: 3px solid rgb(255, 255, 255);
 }
+
+@media only screen and (max-width: 800px) {
+    .start{
+        font-size: 3rem;
+    }
+  }

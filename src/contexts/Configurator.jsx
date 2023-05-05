@@ -23,15 +23,13 @@ export const ConfiguratorProvider = ({ children }) => {
 
   const [rating, setRating] = useState(0);
 
-  const [selected, setSelected] = useState([null, 0, [0, 0, 18]]);
+  const [selected, setSelected] = useState([null, 0, [0, 0, 22]]);
 
   const [walk, setWalk] = useState(false);
 
   const [selectedWalk, setSelectedWalk] = useState([null]);
 
   const [start, setStart] = useState(false);
-
-  const [texture, setTexture] = useState("fabric001");
 
   return (
     <ConfiguratorContext.Provider
@@ -64,8 +62,6 @@ export const ConfiguratorProvider = ({ children }) => {
         setSelectedWalk,
         start,
         setStart,
-        texture,
-        setTexture,
       }}
     >
       {children}
