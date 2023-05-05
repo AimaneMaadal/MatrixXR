@@ -42,7 +42,7 @@ export const Player = props => {
         if (selected[0] !== undefined) {
             const bodyPosition = ref.current.position
 
-            const poss = new THREE.Vector3(selected[2][0]+1.125, selected[2][1], selected[2][2])
+            const poss = new THREE.Vector3(selected[2][0]-1.125, selected[2][1], selected[2][2])
     
             bodyPosition.lerp(poss, 0.5)
         

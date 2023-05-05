@@ -16,7 +16,7 @@ export function Bank(props) {
     const [hovered, setHovered] = useState(false)
     const [clicked, setClicked] = useState(false)
 
-    const { setCursor, selected, setSelected, setWalk, walk, setSelectedWalk, texture, setTexture } = useConfigurator()
+    const { setCursor, selected, setSelected, setWalk, walk, setSelectedWalk } = useConfigurator()
 
     const info = [index, props.name, props.newPosition, props.gltf, props.scale, props.rotation, props.rating, props.price, props.category, props.materials.map]
     
@@ -70,23 +70,14 @@ export function Bank(props) {
         }
       }
     });
-
-    const [colorMap = null, displacementMap = null, normalMap = null, roughnessMap = null, aoMap = null] = selected[0] == index
-    ? useTexture([
-        'textures/' + texture + '/Substance_Graph_BaseColor.webp',
-        'textures/' + texture + '/Substance_Graph_Height.webp',
-        'textures/' + texture + '/Substance_Graph_Normal.webp',
-        'textures/' + texture + '/Substance_Graph_Roughness.webp',
-        'textures/' + texture + '/Substance_Graph_AmbientOcclusion.webp',
-      ])
-    : useTexture([
-        'textures/fabric004/Substance_Graph_BaseColor.webp',
-        'textures/fabric004/Substance_Graph_Height.webp',
-        'textures/fabric004/Substance_Graph_Normal.webp',
-        'textures/fabric004/Substance_Graph_Roughness.webp',
-        'textures/fabric004/Substance_Graph_AmbientOcclusion.webp',
-      ]);
-  
+    
+    const [colorMap, displacementMap, normalMap, roughnessMap, aoMap] = useTexture([
+      props.materials.map + '/Substance_Graph_BaseColor.webp',
+      props.materials.map + '/Substance_Graph_Height.webp',
+      props.materials.map + '/Substance_Graph_Normal.webp',
+      props.materials.map + '/Substance_Graph_Roughness.webp',
+      props.materials.map + '/Substance_Graph_AmbientOcclusion.webp',
+    ])
 
     colorMap.wrapS = THREE.RepeatWrapping;
     colorMap.wrapT = THREE.RepeatWrapping;
@@ -110,7 +101,7 @@ export function Bank(props) {
             receiveShadow
             geometry={nodes.HSM0004001.geometry}
             scale={0.05}
-            onClick={(e) => !walk ? (e.stopPropagation(), setClicked(!clicked), selected[0] == index ? setSelected([null,0,[0,8,20]]) : (setSelected(info), setTexture("fabric004")  )) : setSelectedWalk(info)}
+            onClick={(e) => !walk ? (e.stopPropagation(), setClicked(!clicked), selected[0] == index ? setSelected([null,0,[0,8,20]]) : setSelected(info)) : setSelectedWalk(info)}
             onPointerOver={(e) => (e.stopPropagation(), setHovered(true), setCursor(true))}
             onPointerOut={(e) => (setHovered(false), setCursor(false))}
         >
