@@ -68,12 +68,15 @@ const { setSelected, walk, setWalk, setSelectedWalk } = useConfigurator();
               <XR>
                 <Lights />
                 {mode === 'vr' && <VRInterface />}
-                <Controllers />
+                <Controllers 
+                  rayMaterial={{ color: 'red', opacity: 1 }}
+                  rayLength={20}
+                />
                 <TeleportTravel useNormal={false}>
                   <Floor size={[400, 550]} />
                 </TeleportTravel>
                 <Experience />
-                {/* <Perf /> */}
+
               </XR>
               <Controls />
             {
@@ -88,7 +91,7 @@ const { setSelected, walk, setWalk, setSelectedWalk } = useConfigurator();
             />
             : null
             }
-
+            {/* <Perf /> */}
             </Canvas>
             </KeyboardControls>
             <Interface />            
